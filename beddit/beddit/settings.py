@@ -7,7 +7,7 @@ SECRET_KEY = '6vlc%wh7ic!e2o2+pu+7wj0bbdojj^=17o=a@z!xp-q(3q1o1y'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -51,6 +51,11 @@ TEMPLATES = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+        'django.contrib.auth.backends.RemoteUserBackend',
+        'django.contrib.auth.backends.ModelBackend',
+)
+
 WSGI_APPLICATION = 'beddit.wsgi.application'
 
 
@@ -70,7 +75,7 @@ DATABASES = {
 
 # Password validation
 
-AUTH_USER_MODEL = 'accounts_app.User'
+AUTH_USER_MODEL = 'accounts_app.BlogUser'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
